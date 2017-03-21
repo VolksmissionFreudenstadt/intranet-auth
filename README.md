@@ -5,6 +5,9 @@ Authenticates Apache's `authnz-external` against a kOOL database.
 This is helpful, as newer versions of Apache do not work with mod_auth_mysql anymore and mod_auth_dbm cannot handle kOOL's md5-encoded password fields.
 
 ## Prerequisites
+### PHP modules
+This script requires the `mysqli` and `yaml` PHP modules.
+
 ### Install and enable `authnz-external`. 
 
 On Ubuntu 16.04, you'd do:
