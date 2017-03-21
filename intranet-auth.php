@@ -35,7 +35,6 @@ $username = trim( fgets( $handle ) );
 $password = trim( fgets( $handle ) );
 
 
-$fp = fopen( '/tmp/auth.log', 'a' );
 $db = new mysqli( $config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['name'] );
 if ( mysqli_connect_errno() ) {
 	printf( "Verbindung fehlgeschlagen: %s\n", mysqli_connect_error() );
@@ -60,10 +59,5 @@ if ( $res = $query->get_result() ) {
 } else {
     $exitCode = ERROR_ON_QUERY;
 }
-
-fwrite( $fp,
-	strftime( '%Y-%m-%d %H:%M:%S' ) . " Attempt to login as '{$username}' with password '{$password}' --> {$exitCode}" . PHP_EOL );
-fclose( $fp );
-
 
 exit ( $exitCode );
