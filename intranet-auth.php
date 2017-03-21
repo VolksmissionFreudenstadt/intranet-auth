@@ -37,7 +37,6 @@ $password = trim( fgets( $handle ) );
 
 $db = new mysqli( $config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['name'] );
 if ( mysqli_connect_errno() ) {
-	printf( "Verbindung fehlgeschlagen: %s\n", mysqli_connect_error() );
 	exit( ERROR_DB );
 }
 
